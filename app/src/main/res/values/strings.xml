@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Notification</string>
+    <string name="notificationTitle">Notification Title</string>
+    <string name="textContent">This is a test notification. Will it show the whole text?</string>
+    <string name="channelName">MyAppNotifChannel</string>
+    <string name="descriptionText">Notification to show userful things about my app</string>
+</resources>
