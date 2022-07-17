@@ -33,17 +33,21 @@ public class MainActivity extends AppCompatActivity {
         notificationTitle = getString(R.string.notificationTitle);
         notificationContent = getString(R.string.textContent);
 
+        /* new intent to Start activity from click */
         Intent intent = new Intent(this, ExampleActivity.class);
+        /* for what i understood, this is creating a new task in activity so i doesn't come on top
+        of the Activity Stack */
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         int flag;
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             flag = PendingIntent.FLAG_IMMUTABLE;
         } else {
             flag = 0;
         }
 
+        /* Pending Intent - Basically declaring the intent i want to be opened
+        in the Notification */
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, flag);
         btnNotif.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /* Notification Builder. Here i defined title, icon, content and Pending Intent
+        To start a new activity whenever the user clicks in the Notification */
         builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_people)
                 .setContentTitle(notificationTitle)
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannel();
 
     }
-
+    // Creating notification channels for newer versions of Android || notificationManager
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String name = getString(R.string.channelName);
