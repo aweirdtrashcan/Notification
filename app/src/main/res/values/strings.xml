@@ -4,4 +4,6 @@
     <string name="textContent">This is a test notification. Will it show the whole text?</string>
     <string name="channelName">MyAppNotifChannel</string>
     <string name="descriptionText">Notification to show userful things about my app</string>
+    <string name="show_notif">Show Notification</string>
+    <string name="notif_activity">Notification Activity</string>
 </resources>
